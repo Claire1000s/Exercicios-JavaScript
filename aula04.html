@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Aula 04 - JavaScript</title>
+
+		<script type="text/javascript">
+			function ligarLampada()
+			{
+				document.getElementById("lampada").src = "lampada-acesa.jpg";
+			}
+		</script>
+	</head>
+
+	<body onload="alert('Carregado');">
+		<p>Javascript Aula 04</p>
+		<img id="lampada" onClick="ligarLampada();" src="lampada-apagada.jpg" />
+	</body>
+</html>
