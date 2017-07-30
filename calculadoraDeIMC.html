@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Calculadora de IMC - Por Leticia Ferreira</title>
+
+		<style type="text/css">
+			#container
+			{
+				width: 100%;
+				margin: 0 auto;
+			}
+
+			.imc
+			{
+				display: table;
+				margin: 0 auto;
+			}
+
+			h2
+			{
+				text-align: center;
+				color: #192B75;
+				text-shadow: 2px 2px 2px #000000;
+			}
+
+			input
+			{	
+				display: block;
+				position: relative;
+				top: -20px;
+				left: 53px;
+			}
+
+			fieldset
+			{	
+				line-height: 15px;
+				display: block;
+				position: relative;
+				margin: 0 auto;
+				width: 200px;
+			}
+
+			legend
+			{
+				text-align: center;
+			}
+
+			p
+			{
+				text-indent: 20px;
+				text-align: justify;
+			}
+		</style>
+
+		<script type="text/javascript">
+			function calcularImc()
+			{
+				var formu = document.getElementById("formulario");
+
+				var kilos = parseInt(formu.peso.value);
+				var metro = parseInt(formu.metros.value);
+				var centimetros = parseInt(formu.cm.value);
+
+				var altura = (metro * 100 + centimetros) / 100;
+
+				var imc = kilos / (altura * altura);
+				formu.imc.value = imc.toFixed(2);
+
+				if(imc < 16)
+				{
+					alert("Magreza grave");
+				}
+				else if(imc >= 16 && imc < 17)
+				{
+					alert("Magreza moderada");
+				}
+				else if(imc >= 17 && imc < 18.5)
+				{
+					alert("Magreza leve");
+				}
+				else if(imc >= 18.5 && imc < 25)
+				{
+					alert("Saudável");
+				}
+				else if(imc >= 25 && imc < 30)
+				{
+					alert("Sobrepeso");
+				}
+				else if(imc >= 30 && imc < 35)
+				{
+					alert("Obesidade Grau I");
+				}
+				else if(imc >= 35 && imc < 40)
+				{
+					alert("Obesidade Grau II (severa)");
+				}
+				else
+				{
+					alert("Obesidade Grau III (mórbida)")
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container">
+			<h2>CALCULADORA DE IMC</h2>
+			<img class="imc" src="logoImc.png" width="394px" height="212px" />
+			<br />
+			<p class="texto">O índice de massa corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal. Desenvolvido pelo polímata Lambert Quételet no fim do século XIX, trata-se de um método fácil e rápido para a avaliação do nível de gordura de cada pessoa, sendo, por isso, um preditor internacional de obesidade adotado pela Organização Mundial da Saúde (OMS).</p>
+			<br />
+			<p class="texto">Calcule abaixo seu IMC e saiba se você está no peso ideal.</p>
+			<br />
+			<form id="formulario">
+				<fieldset>
+					<legend>Calculadora de IMC</legend>
+					<br/>
+					<label for="peso">Peso: </label><input type="text" size="10" name="peso" />
+					<label for="metros">Metros: </label><input type="text" size="10" name="metros" />
+					<label for="cm">Cm: </label><input type="text" size="10" name="cm" />
+					<br />
+					<label for="IMC">IMC: </label><input type="text" size="10" name="imc" disabled="disabled"/>
+					<br />
+					<input type="button" onClick="calcularImc();"name="calcular" value="Calcular" />
+				</fieldset>
+			</form>
+			<br />
+			<img class="imc" src="imc.gif" />
+		</div>
+	</body>
+</html>
